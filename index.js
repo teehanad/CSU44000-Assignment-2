@@ -54,12 +54,10 @@ app.post('/create', (req, res) => {
             console.log("Created table. Table description JSON:", JSON.stringify(data, null, 2));
         }
     });
-    //construct getParam
     var s3params = {
         Bucket: 'csu44000assignment2',
         Key: 'moviedata.json'
     }
-    //Fetch or read data from aws s3
     var s3 = new AWS.S3();
     s3.getObject(s3params, function (err, data) {
         if (err) {
